@@ -1,0 +1,10 @@
+#!/bin/bash
+
+MUSIC_DIR="/home/$USER/Music"
+
+if [ $# -eq 1 ] 
+then
+    youtube-dl --download-archive downloaded.txt --no-overwrites -ic --yes-playlist --extract-audio --audio-format mp3 --audio-quality 0 --socket-timeout 5 -o "$MUSIC_DIR/%(title)s-%(id)s.%(ext)s" $1;
+else
+    echo "./download <list>"
+fi
